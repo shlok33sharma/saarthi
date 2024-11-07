@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css"> <!-- Link to your CSS file -->
+</head>
+<style>
+    
+</style>
+<body style="background-color: #e2e7e6;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="logo test.jpeg" alt="Logo" width="60" height="54"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="Destination.html">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="Guides.html">Guides</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+            </ul>
+            <a href="signin.html" class= "btn btn-primary sign-in-btn">Sign In</a>
+            <a href="signup.html" class= "btn btn-primary sign-up-btn">Sign Up</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Carousel with Search Bar -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"> <!-- Added data-bs-interval -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner carousel-custom">
+    <div class="carousel-item active carousel-custom img">
+      <img src="hero1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption h3 d-none d-md-block">
+        <h3>"Welcome to Saarthi !"</h3>
+        <p style="color: #FFD4DB;">Explore.Dream.Discover"</p>
+      </div>
+    </div>
+    <div class="carousel-item carousel-custom img">
+      <img src="hero2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption h3 d-none d-md-block">
+        <h3>Just Leave it !</h3>
+        <p style="color:#e2e7e6;">"Your guide to the world’s must-see spots."</p>
+      </div>
+    </div>
+    <div class="carousel-item carousel-custom img">
+      <img src="hero3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption h3 d-none d-md-block">
+        <h3 style="color: whitesmoke;">Ancient hunt</h3>
+        <p style="color: #FFD898;">"Travel back to the roots of history and heritage."
+        </p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  <!-- Search Bar Overlay -->
+ <div class="search-bar-overlay">
+  <input type="text" class="search-input" placeholder="Search your Destinations">
+  <button class="search-button"><i class="bi bi-search"> <img src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" alt="Search icon" width="20" height="20"></i></button>
+</div>
+</div>
+
+<!-- Cards Section -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-custom">
+                <img src="luca-bravo-ESkw2ayO2As-unsplash.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 1</h5>
+                    <p class="card-text">Some quick example text for card 1.</p>
+                    <a href="Destination.html" class="btn btn-primary" style="background-color: #232f3e;">Explore more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-custom">
+                <img src="luca-bravo-ESkw2ayO2As-unsplash.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 2</h5>
+                    <p class="card-text">Some quick example text for card 2.</p>
+                    <a href="Destination.html" class="btn btn-primary" style="background-color: #232f3e;">Explore more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-custom">
+                <img src="luca-bravo-ESkw2ayO2As-unsplash.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 3</h5>
+                    <p class="card-text">Some quick example text for card 3.</p>
+                    <a href="Destination.html" class="btn btn-primary" style="background-color: #232f3e;">Explore more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cards Section -->
+<div class="container my-5">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card card-custom">
+              <img src="luca-bravo-ESkw2ayO2As-unsplash.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 1</h5>
+                  <p class="card-text">Some quick example text for card 1.</p>
+                  <a href="Destination.html" class="btn btn-primary" style="background-color: #232f3e;">Explore more</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card card-custom">
+              <img src="luca-bravo-ESkw2ayO2As-unsplash.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 2</h5>
+                  <p class="card-text">Some quick example text for card 2.</p>
+                  <a href="Destination.html" class="btn btn-primary" style="background-color: #232f3e;">Explore more</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card card-custom">
+              <img src="luca-bravo-ESkw2ayO2As-unsplash.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Card title 3</h5>
+                  <p class="card-text">Some quick example text for card 3.</p>
+                  <a href="Destination.html" class="btn btn-primary" style="background-color: #232f3e;">Explore more</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Blog Section -->
+<div class="container my-5" id="blogs">
+    <h2 class="text-center mb-4">Latest Blogs</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="daniel-malikyar-F1leFzugQfM-unsplash.jpg" class="card-img-top" alt="Blog Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 1</h5>
+                    <p class="card-text">A short description for blog 1 that highlights the content of the blog in an engaging way.</p>
+                    <a href="#" class="btn btn-outline-primary" >Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="daniel-malikyar-F1leFzugQfM-unsplash.jpg" class="card-img-top" alt="Blog Image 2">
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 2</h5>
+                    <p class="card-text">A short description for blog 2 that highlights the content of the blog in an engaging way.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="daniel-malikyar-F1leFzugQfM-unsplash.jpg" class="card-img-top" alt="Blog Image 3">
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 3</h5>
+                    <p class="card-text">A short description for blog 3 that highlights the content of the blog in an engaging way.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Section -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="daniel-malikyar-F1leFzugQfM-unsplash.jpg" class="card-img-top" alt="Blog Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 1</h5>
+                    <p class="card-text">A short description for blog 1 that highlights the content of the blog in an engaging way.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="daniel-malikyar-F1leFzugQfM-unsplash.jpg" class="card-img-top" alt="Blog Image 2">
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 2</h5>
+                    <p class="card-text">A short description for blog 2 that highlights the content of the blog in an engaging way.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img src="daniel-malikyar-F1leFzugQfM-unsplash.jpg" class="card-img-top" alt="Blog Image 3">
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 3</h5>
+                    <p class="card-text">A short description for blog 3 that highlights the content of the blog in an engaging way.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Explore More Blogs Button -->
+    <div class="text-center my-4">
+        <a href="all-blogs.html" class="btn btn-outline-primary btn-lg">Explore More Blogs</a>
+    </div>
+</div>
+
+<!-- "We'll Handle Your Trip for You" Section with Image-Text Cards -->
+<div class="container my-5">
+    <h2 class="text-center">We’ll Handle Your Trip for You</h2>
+    <div class="row text-center mt-6">
+        <!-- Card 1: Flight Booking -->
+        <div class="col-md-6 d-flex align-items-center mb-4">
+            <img src="fligth.jpg" class="img-fluid rounded" style="width: 150px; height: 150px; object-fit: cover;" alt="Flight Booking">
+            <div class="ms-4 text-start">
+                <h5>Flight Booking</h5>
+                <p>Share your service offerings here. Give your prospective clients an overview of why they should use it.</p>
+            </div>
+        </div>
+        
+        <!-- Card 2: Tours & Activities -->
+        <div class="col-md-6 d-flex align-items-center mb-4">
+            <img src="tour and activities.jpg" class="img-fluid rounded" style="width: 150px; height: 150px; object-fit: cover;" alt="Tours & Activities">
+            <div class="ms-4 text-start">
+                <h5>Tours & Activities</h5>
+                <p>Share your service offerings here. Give your prospective clients an overview of why they should use it.</p>
+            </div>
+        </div>
+
+        <!-- Card 3: Airport Transfers -->
+        <div class="col-md-6 d-flex align-items-center mb-4">
+            <img src="airport transfer.jpg" class="img-fluid rounded" style="width: 150px; height: 150px; object-fit: cover;" alt="Airport Transfers">
+            <div class="ms-4 text-start">
+                <h5>Airport Transfers</h5>
+                <p>Share your service offerings here. Give your prospective clients an overview of why they should use it.</p>
+            </div>
+        </div>
+
+        <!-- Card 4: Hotel Bookings -->
+        <div class="col-md-6 d-flex align-items-center mb-4">
+            <img src="hotel booking.jpg" class="img-fluid rounded" style="width: 150px; height: 150px; object-fit: cover;" alt="Hotel Bookings">
+            <div class="ms-4 text-start">
+                <h5>Hotel Bookings</h5>
+                <p>Share your service offerings here. Give your prospective clients an overview of why they should use it.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact us -->
+    <div class="text-center my-4">
+        <a href="contactus.html" class="btn btn-outline-primary btn-lg">Contact us</a>
+    </div>
+</div>
+
+
+<!-- Our Favorite Travelers Section -->
+<div class="container my-5 text-center">
+    <h2>Our Favorite Travelers</h2>
+    <div class="row mt-4">
+        <!-- Testimonial Card 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="testimonial-card p-4 rounded shadow-sm">
+                <img src="logo image.webp" class="rounded-circle mb-3" style="width: 60px; height: 60px;" alt="Noah Schumacher">
+                <p>Boost your product and service’s credibility by adding testimonials from your clients. People love recommendations, so feedback from others who’ve tried it is invaluable.</p>
+                <h5 class="mt-3">Noah Schumacher</h5>
+                <div class="rating text-warning">
+                    ★★★★★
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Card 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="testimonial-card p-4 rounded shadow-sm">
+                <img src="logo image.webp" class="rounded-circle mb-3" style="width: 60px; height: 60px;" alt="Julia Patel">
+                <p>Boost your product and service’s credibility by adding testimonials from your clients. People love recommendations, so feedback from others who’ve tried it is invaluable.</p>
+                <h5 class="mt-3">Julia Patel</h5>
+                <div class="rating text-warning">
+                    ★★★★★
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="testimonial-card p-4 rounded shadow-sm">
+                <img src="logo image.webp" class="rounded-circle mb-3" style="width: 60px; height: 60px;" alt="Natalia Lowe">
+                <p>Boost your product and service’s credibility by adding testimonials from your clients. People love recommendations, so feedback from others who’ve tried it is invaluable.</p>
+                <h5 class="mt-3">Natalia Lowe</h5>
+                <div class="rating text-warning">
+                    ★★★★★
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Let's Plan Your Next Trip Section -->
+<div class="plan-trip-section container my-5">
+    <div class="row">
+        <!-- Left Image Section with Overlay Text -->
+        <div class="col-md-6 p-0">
+            <div class="trip-image text-white position-relative">
+                <img src="another image.jpg" alt="Travel Image" class="img-fluid fixed-size-img">
+                <div class="overlay-text position-absolute p-4">
+                    <h2>Let's plan your next trip</h2>
+                    <p>Roseton Travel & Tours</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Contact Section -->
+        <div class="col-md-6 p-4 bg-dark text-white contact-info">
+            <h3>Address</h3>
+            <p>123 Anywhere St.<br>Any City, ST 12345<br>Country</p>
+
+            <h3>Contact</h3>
+            <p>Telephone: (123) 456-7890<br>Mobile: (123) 456-7890<br>Email: <a href="mailto:hello@reallygreatsite.com" class="text-white">hello@reallygreatsite.com</a></p>
+
+            <h3>Office Hours</h3>
+            <p>Monday: 8am - 7pm<br>Tuesday: 8am - 5pm<br>Wednesday: 8am - 5pm<br>Thursday: 8am - 7pm<br>Friday: 8am - 5pm</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>About Us</h2>
+            <p>Discover the best destinations and travel tips. Explore, plan, and book your dream vacation with us!</p>
+        </div>
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Destination.html">Destinations</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@travelguide.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Travel Guide | Designed by Your Team</p>
+    </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

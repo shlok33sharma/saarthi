@@ -1,0 +1,318 @@
+/* Custom styling */
+.navbar-custom {
+  background-color:#37475a;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a .navbar-brand{
+  width: 200px;
+}
+
+.navbar-custom {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-link{
+  color: white;
+}
+
+.nav-link:hover{
+  color: #e0e0e0;
+}
+
+
+
+.sign-in-btn {
+  padding: 10px 20px;
+  color: #6495ED;
+  background-color: #fdfdfd; /* Primary blue color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.sign-in-btn:hover {
+  background-color: #6ac5fe; /* Darker shade on hover */
+}
+
+.sign-up-btn {
+  padding: 10px 20px;
+  color: white;
+  background-color:#6495ED; /* Primary blue color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.sign-up-btn:hover {
+  background-color: #6ac5fe; /* Darker shade on hover */
+}
+
+
+.card-custom img {
+  width: 400px;
+  height: 200px;
+  object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+}
+
+
+/* Carousel container height */
+.carousel-custom {
+  margin-top: 1%;
+  height: 600px;
+  overflow: hidden;
+}
+
+/* Image styling */
+.carousel-custom img {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Text overlay styling */
+.carousel-caption h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color:#0C2D48;
+  text-shadow: 2px 2px 5px #B1D4E0 (166, 158, 158, 0.7);
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  color:whitesmoke;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.search-bar-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 20px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  padding: 5px 15px;
+  width: 300px;
+}
+
+.search-button {
+  border: none;
+  background-color: #6495ED;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-custom {
+  margin: 15px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+ 
+
+/* Blog Section Styling */
+.blog-card {
+  transition: box-shadow 0.3s;
+}
+
+.blog-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card .card-img-top{
+  width: 400px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.blog-card .card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+/* Custom styling for the Explore More Blogs button */
+.text-center .btn-outline-primary {
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 10px 30px;
+}
+
+
+/* Style for the section title */
+.container h2 {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 60px;
+  margin-top: 100px;
+  font: size 150px;;
+}
+
+/* Style for the card layout */
+.container .col-md-6 img {
+  border-radius: 8px;
+}
+
+.container .col-md-6 h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.container .col-md-6 p {
+  color: #666;
+  font-size: 0.95em;
+}
+
+
+/* Style for the section title */
+.container h2 {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Style for testimonial cards */
+.testimonial-card {
+  background-color: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card img {
+  border: 2px solid #e0e0e0;
+}
+
+.testimonial-card h5 {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+}
+
+.testimonial-card p {
+  color: #666;
+  font-size: 0.95em;
+}
+
+.rating {
+  font-size: 1.2em;
+  color: #ffc107; /* Gold color for the stars */
+}
+
+
+.plan-trip-section .trip-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-trip-section .trip-image .fixed-size-img {
+  width: 100%;
+  height: 480px; /* Set the height you prefer */
+  object-fit: cover;
+}
+
+.plan-trip-section .overlay-text {
+  position: absolute;
+  bottom: 20px; /* Adjust bottom padding */
+  left: 20px; /* Adjust left padding */
+  color: white;
+  background: transparent; /* Optional: translucent background for readability */
+  padding: 15px;
+}
+
+.plan-trip-section .contact-info {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  margin: 20px;
+  max-width: 200px;
+}
+
+.footer-section h2 {
+  color: #ff6b6b;
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #ff6b6b;
+}
+
+.socials a {
+  color: #aaa;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.socials a:hover {
+  color: #ff6b6b;
+}
+
+.footer-bottom {
+  padding: 20px;
+  background-color: #222;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
