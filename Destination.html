@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Select2 CSS for searchable dropdowns -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <style>
         body {
             background-color: #f8f9fa;
@@ -90,19 +93,19 @@
         <h4 class="text-center">Filter Destinations</h4>
         <div class="form-group">
             <label for="country">Country</label>
-            <select id="country" class="form-control" onchange="fetchStates()">
+            <select id="country" class="form-control select2" onchange="fetchStates()">
                 <option value="">Select Country</option>
             </select>
         </div>
         <div class="form-group">
             <label for="state">State</label>
-            <select id="state" class="form-control" onchange="fetchPlaces()">
+            <select id="state" class="form-control select2" onchange="fetchPlaces()">
                 <option value="">Select State</option>
             </select>
         </div>
         <div class="form-group">
             <label for="place">Place</label>
-            <select id="place" class="form-control">
+            <select id="place" class="form-control select2">
                 <option value="">Select Place</option>
             </select>
         </div>
@@ -173,7 +176,15 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Select2 JS for searchable dropdowns -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
+        // Initialize Select2 on the dropdowns
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+
         // Function to populate countries dynamically from the REST Countries API
         function fetchCountries() {
             fetch('https://restcountries.com/v3.1/all')
@@ -196,7 +207,7 @@
             let stateSelect = document.getElementById('state');
             stateSelect.innerHTML = '<option value="">Select State</option>';
             const statesData = {
-                "India": ["Maharashtra", "Karnataka", "Goa"],
+                "India": ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura","Uttar Pradesh", "Uttarakhand"," West Bengal","Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli" , "Daman and Diu", "Lakshadweep", "Puducherry"],
                 "United States": ["California", "New York", "Texas"],
                 "Australia": ["New South Wales", "Queensland", "Victoria"]
             };
