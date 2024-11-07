@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff;
+            height: 100vh;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .content {
+            margin-left: 320px;
+            padding: 20px;
+        }
+
+        .destination-card {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .destination-card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destination-card .card-body {
+            padding: 15px;
+        }
+
+        .destination-card h5 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-apply {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-apply:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+            }
+
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar for Filters -->
+    <div class="sidebar">
+        <h4 class="text-center">Filter Destinations</h4>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" class="form-control" onchange="fetchStates()">
+                <option value="">Select Country</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <select id="state" class="form-control" onchange="fetchPlaces()">
+                <option value="">Select State</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="place">Place</label>
+            <select id="place" class="form-control">
+                <option value="">Select Place</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="preference">Preference</label>
+            <select id="preference" class="form-control">
+                <option value="">Select Preference</option>
+                <option value="beach">Beach</option>
+                <option value="mountain">Mountain</option>
+                <option value="forest">Forest</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="budget">Budget</label>
+            <select id="budget" class="form-control">
+                <option value="">Select Budget</option>
+                <option value="low">Low ($0 - $500)</option>
+                <option value="medium">Medium ($500 - $1500)</option>
+                <option value="high">High ($1500+)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="people">Number of People</label>
+            <select id="people" class="form-control">
+                <option value="">Select Number of People</option>
+                <option value="1">1</option>
+                <option value="2-4">2-4</option>
+                <option value="5-7">5-7</option>
+                <option value="8+">8+</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="days">Number of Days</label>
+            <select id="days" class="form-control">
+                <option value="">Select Number of Days</option>
+                <option value="1-3">1-3</option>
+                <option value="4-7">4-7</option>
+                <option value="8-14">8-14</option>
+                <option value="15+">15+</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="accommodation">Accommodation Type</label>
+            <select id="accommodation" class="form-control">
+                <option value="">Select Accommodation</option>
+                <option value="hotel">Hotel</option>
+                <option value="hostel">Hostel</option>
+                <option value="resort">Resort</option>
+                <option value="camping">Camping</option>
+            </select>
+        </div>
+        <a href="#fd"><button class="btn btn-apply btn-block mt-3" onclick="filterDestinations()">Apply Filters</button></a>
+    </div>
+
+    <!-- Main Content Area for Destination Results -->
+    <div class="content">
+        <h2>Top Trending Destinations</h2>
+        <div id="trending-destinations" class="row">
+            <!-- Trending destination cards will be displayed here -->
+        </div>
+        <h2 class="mt-5" id="fd">Filtered Destinations</h2>
+        <div id="destinations" class="row">
+            <!-- Destination cards will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to populate countries dynamically from the REST Countries API
+        function fetchCountries() {
+            fetch('https://restcountries.com/v3.1/all')
+                .then(response => response.json())
+                .then(data => {
+                    let countrySelect = document.getElementById('country');
+                    data.forEach(country => {
+                        let option = document.createElement('option');
+                        option.value = country.name.common;
+                        option.textContent = country.name.common;
+                        countrySelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching countries:', error));
+        }
+
+        // Function to fetch and populate states and places (mock data)
+        function fetchStates() {
+            let country = document.getElementById('country').value;
+            let stateSelect = document.getElementById('state');
+            stateSelect.innerHTML = '<option value="">Select State</option>';
+            const statesData = {
+                "India": ["Maharashtra", "Karnataka", "Goa"],
+                "United States": ["California", "New York", "Texas"],
+                "Australia": ["New South Wales", "Queensland", "Victoria"]
+            };
+            if (statesData[country]) {
+                statesData[country].forEach(state => {
+                    let option = document.createElement('option');
+                    option.value = state;
+                    option.textContent = state;
+                    stateSelect.appendChild(option);
+                });
+            }
+        }
+
+        function fetchPlaces() {
+            let state = document.getElementById('state').value;
+            let placeSelect = document.getElementById('place');
+            placeSelect.innerHTML = '<option value="">Select Place</option>';
+            const placesData = {
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+                "California": ["Los Angeles", "San Francisco", "San Diego"],
+                "New South Wales": ["Sydney", "Newcastle", "Wollongong"]
+            };
+            if (placesData[state]) {
+                placesData[state].forEach(place => {
+                    let option = document.createElement('option');
+                    option.value = place;
+                    option.textContent = place;
+                    placeSelect.appendChild(option);
+                });
+            }
+        }
+
+        function displayTrendingDestinations() {
+            const trendingDestinationsContainer = document.getElementById('trending-destinations');
+            trendingDestinationsContainer.innerHTML = `
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Trending Beach">
+                        <div class="card-body">
+                            <h5 class="card-title">Trending Beach</h5>
+                            <p class="card-text">Enjoy the beautiful sunset at this trending beach.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Trending Mountain">
+                        <div class="card-body">
+                            <h5 class="card-title">Trending Mountain</h5>
+                            <p class="card-text">Hike the majestic trails of this trending mountain.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Trending City">
+                        <div class="card-body">
+                            <h5 class="card-title">Trending City</h5>
+                            <p class="card-text">Experience the vibrant nightlife of this trending city.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Trending Island">
+                        <div class="card-body">
+                            <h5 class="card-title">Trending Island</h5>
+                            <p class="card-text">Relax on the sandy shores of this beautiful trending island.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Trending Forest">
+                        <div class="card-body">
+                            <h5 class="card-title">Trending Forest</h5>
+                            <p class="card-text">Discover the hidden gems in this trending forest.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Trending Lake">
+                        <div class="card-body">
+                            <h5 class="card-title">Trending Lake</h5>
+                            <p class="card-text">Relax by the peaceful shores of this trending lake.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function filterDestinations() {
+            const destinationsContainer = document.getElementById('destinations');
+            destinationsContainer.innerHTML = `
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Beautiful Beach">
+                        <div class="card-body">
+                            <h5 class="card-title">Beautiful Beach</h5>
+                            <p class="card-text">Experience the serene beaches with golden sands and blue waters.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Mountain Adventure">
+                        <div class="card-body">
+                            <h5 class="card-title">Mountain Adventure</h5>
+                            <p class="card-text">Climb the majestic mountains and enjoy breathtaking views.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Forest Escape">
+                        <div class="card-body">
+                            <h5 class="card-title">Forest Escape</h5>
+                            <p class="card-text">Reconnect with nature in lush green forests and tranquil landscapes.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Desert Adventure">
+                        <div class="card-body">
+                            <h5 class="card-title">Desert Adventure</h5>
+                            <p class="card-text">Experience the beauty of the vast desert landscapes.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Urban Exploration">
+                        <div class="card-body">
+                            <h5 class="card-title">Urban Exploration</h5>
+                            <p class="card-text">Discover the hidden gems in the heart of the city.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card destination-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Cultural Heritage">
+                        <div class="card-body">
+                            <h5 class="card-title">Cultural Heritage</h5>
+                            <p class="card-text">Immerse yourself in the rich cultural heritage of this destination.</p>
+                            <button class="btn btn-primary">Explore</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize the page with countries and trending destinations
+        fetchCountries();
+        displayTrendingDestinations();
+    </script>
+</body>
+
+</html>
