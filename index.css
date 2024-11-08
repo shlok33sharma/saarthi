@@ -58,7 +58,7 @@ a .navbar-brand{
 
 
 .card-custom img {
-  width: 390px;
+  width: 388px;
   height: 200px;
   object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
 }
