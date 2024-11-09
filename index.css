@@ -56,14 +56,6 @@ a .navbar-brand{
   background-color: #6ac5fe; /* Darker shade on hover */
 }
 
-
-.card-custom img {
-  width: 388px;
-  height: 200px;
-  object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
-}
-
-
 /* Carousel container height */
 .carousel-custom {
   margin-top: 1%;
@@ -123,10 +115,28 @@ a .navbar-brand{
   justify-content: center;
 }
 
+/* Default styling for card with responsive image */
 .card-custom {
+  width: 400px; /* Sets default width */
+  max-width: 100%; /* Ensures it shrinks on smaller screens */
   margin: 15px;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensures the images stay within the card boundaries and are responsive */
+.card-custom img {
+  width: 100%; /* Matches image width to card width */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Ensures image fits within dimensions */
+  border-radius: 8px; /* Optional: rounds image corners */
+}
+
+@media (max-width: 768px) {
+  .card-custom {
+    width: 100%; /* Makes card full-width on smaller screens */
+    margin: 10px 0;
+  }
 }
 
 
