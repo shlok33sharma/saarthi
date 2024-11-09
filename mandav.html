@@ -15,6 +15,7 @@
     font-family: Arial, sans-serif;
 }
 
+/* Main styles for large screens */
 .places-container {
     display: flex;
     flex-direction: column;
@@ -23,7 +24,7 @@
     padding-top: 100px;
     min-width: 1200px;
     margin: 0 auto;
-    background-color:#e8f3fb ;
+    background-color: #e8f3fb;
 }
 
 .place-item {
@@ -53,31 +54,76 @@
     padding: 20px;
 }
 
-.text-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+/* Media Query for screens below 1200px */
+@media (max-width: 1200px) {
+    .places-container {
+        min-width: unset;
+        width: 100%;
+        padding: 15px;
+        padding-top: 100px;
+    }
+
+    .place-item {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .text-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .text-section h5, .text-section p {
+        font-size: 0.9rem;
+    }
 }
 
-.text-section p {
-    margin-bottom: 10px;
-    font-size: 1rem;
+/* Media Query for screens below 768px */
+@media (max-width: 768px) {
+    .text-section h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Hide longer text content for smaller screens */
+    .text-section .overview-long,
+    .text-section .architecture-long {
+        display: none;
+    }
+
+    .text-section p, .dotted-list {
+        font-size: 0.85rem;
+    }
 }
 
-.text-section strong {
-    color: #333;
+/* Media Query for screens below 576px */
+@media (max-width: 576px) {
+    .places-container {
+        padding-top: 60px;
+    }
+
+    .text-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .text-section h5, .text-section p {
+        font-size: 0.8rem;
+    }
+
+    /* Further reduce padding and margins */
+    .text-section {
+        padding: 10px;
+    }
+
+    .place-item {
+        margin: 15px 0;
+    }
+
+    /* Adjust button styles if there are any */
+    .sign-in-btn, .sign-up-btn {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
 }
 
-.dotted-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 10px;
-}
-
-.dotted-list li {
-    margin-bottom: 8px;
-}
-
- 
 
 </style>
 <body style="background-color: #e2e7e6;">
@@ -107,7 +153,7 @@
     <!-- Each place div starts here -->
     <div class="place-item">
         <div class="image-section">
-            <img src="jal mahal.webp" alt="Jal Mahal Image">
+            <img src="jal mahal.webp" alt="Jal Mahal Image" class="img-fluid">
         </div>
         <div class="text-section">
             <h2>Jal Mahal, Mandav</h2>
@@ -134,7 +180,7 @@
 
     <div class="place-item">
         <div class="image-section">
-            <img src="rani rupmati.jpg" alt="Rani Rupmati Mahal Image">
+            <img src="rani rupmati.jpg" alt="Rani Rupmati Mahal Image" class="img-fluid">
         </div>
         <div class="text-section">
             <h2>Rani Rupmati Mahal, Mandav</h2>
@@ -161,7 +207,7 @@
 
     <div class="place-item">
         <div class="image-section">
-            <img src="hindola.jpg" alt="Hindola Mahal Image">
+            <img src="hindola.jpg" alt="Hindola Mahal Image" class="img-fluid">
         </div>
         <div class="text-section">
             <h2>Hindola Mahal, Mandav</h2>
