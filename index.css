@@ -144,30 +144,37 @@ a .navbar-brand{
 
  
 
-/* Blog Section Styling */
+/* Default styling for blog card with responsive image */
 .blog-card {
+  width: 400px; /* Sets default width */
+  max-width: 100%; /* Ensures it shrinks on smaller screens */
+  margin: 15px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
 }
 
+/* Ensures the images stay within the blog card boundaries and are responsive */
+.blog-card img {
+  width: 100%; /* Matches image width to blog card width */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Ensures image fits within dimensions */
+  border-radius: 8px; /* Optional: rounds image corners */
+}
+
+/* Hover effect for blog card */
 .blog-card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.blog-card .card-img-top{
-  width: 400px;
-  height: 200px;
-  object-fit: cover;
+/* Responsive Adjustment for Smaller Screens */
+@media (max-width: 768px) {
+  .blog-card {
+    width: 100%; /* Makes blog card full-width on smaller screens */
+    margin: 10px 0;
+  }
 }
 
-.blog-card .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.blog-card .card-text {
-  font-size: 1rem;
-  color: #666;
-}
 
 
 /* Custom styling for the Explore More Blogs button */
