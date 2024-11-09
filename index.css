@@ -121,6 +121,7 @@ a .navbar-brand{
   max-width: 100%; /* Ensures it shrinks on smaller screens */
   margin: 15px;
   border: none;
+  border-radius:8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -129,7 +130,8 @@ a .navbar-brand{
   width: 100%; /* Matches image width to card width */
   height: auto; /* Maintains aspect ratio */
   object-fit: cover; /* Ensures image fits within dimensions */
-  border-radius: 8px; /* Optional: rounds image corners */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 @media (max-width: 768px) {
